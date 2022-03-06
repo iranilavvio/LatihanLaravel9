@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BukuController;
-use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,13 @@ use App\Http\Controllers\BerandaController;
 |
 */
 
-Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/buku', [BukuController::class, 'index'])->name('buku');
+Route::controller(BookController::class)->group(function(){
+    Route::get('/book', 'index')->name('book');
+    Route::get('/book-detail/{slug}', 'detail')->name('book.detail');
+});
 
-Route::get('/kategori', function () {
-    return view('kategori');
-})->name('kategori');
+Route::get('/category', [CategoryController::class, 'index'])->name('category');
+Route::get('/category/{id}', [CategoryController::class, 'detail'])->name('category.detail');
+Route::get('/students', [StudentController::class,'index'])->name('students');

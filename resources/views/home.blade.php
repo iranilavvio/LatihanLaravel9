@@ -8,7 +8,7 @@
             <hr>
             <p><b> Ingin baca apa hari ini ?</b></p>
             <div>
-                <a type="submit" class="btn btn-md btn-primary" href="{{ route('buku') }}"> Jelajahi Buku</a>
+                <a type="submit" class="btn btn-md btn-primary" href="{{ route('book') }}"> Jelajahi Buku</a>
             </div>
         </div>
     </div>

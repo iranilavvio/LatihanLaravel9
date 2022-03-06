@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-light">
+<nav class="navbar navbar-expand-md bg-white">
     <div class="container">
         <img src="{{ asset('assets/img/logo.png') }}" alt="" width="5%">
         {{-- <a class="navbar-brand" href="{{ asset('assets/img/logo.png') }}"></a> --}}
@@ -8,16 +8,20 @@
         <div id="collapsibleNavId">
             <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}"
-                        href="{{ route('beranda') }}">Beranda <span class="visually-hidden">(current)</span></a>
+                    <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                        href="{{ route('home') }}">Home <span class="visually-hidden">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('buku') ? 'active' : '' }}"
-                        href="{{ route('buku') }}">Buku</a>
+                    <a class="nav-link {{ request()->routeIs('book') ? 'active' : '' }}"
+                        href="{{ route('book') }}">Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('kategori') ? 'active' : '' }}"
-                        href="{{ route('kategori') }}">Kategori</a>
+                    <a class="nav-link {{ request()->routeIs('students') ? 'active' : '' }}"
+                        href="{{ route('students') }}">Students</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('category') ? 'active' : '' }}"
+                        href="{{ route('category') }}">Category</a>
                 </li>
         </div>
         <div>
