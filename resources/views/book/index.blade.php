@@ -1,20 +1,15 @@
 @extends('layouts.app')
 @section('content')
+    {{-- <x-alert>
+        <span>Berhasil Menambahkan Buku</span>
+    </x-alert> --}}
+
+    <h6 class="mb-3">Total Buku: {{ $books->count() }}</h6>
+
     <div class="row">
         @foreach ($books as $book)
             <div class="col-md-3">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <img src="{{ $book->image }}" class="img-fluid rounded mb-2" alt="">
-                        <h6 class="mt-1">
-                            <a href="{{ route('book.detail', $book->slug) }}"
-                                class="text-dark text-decoration-none">{{ $book->name }}</a>
-                        </h6>
-                        <p class="text-muted">{{ str()->limit($book->slug, 20) }}</p>
-                        <a href="{{ route('category.detail', $book->category_id) }}">Kategori :
-                            {{ $book->category->name }}</a>
-                    </div>
-                </div>
+                <x-card-book :book=$book />
             </div>
         @endforeach
     </div>

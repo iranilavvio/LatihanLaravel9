@@ -22,6 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(BookController::class)->group(function(){
     Route::get('/book', 'index')->name('book');
     Route::get('/book-detail/{slug}', 'detail')->name('book.detail');
+    Route::get('/book-user/{id}', 'user')->name('book.user');
 });
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category');

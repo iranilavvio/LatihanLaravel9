@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+    protected $with = ['category', 'users'];
+    protected $withCount = ['reviews'];
  
     protected $table = "books"; 
 
@@ -15,8 +17,14 @@ class Book extends Model
         return $this->belongsTo(Category::class);
     }
 
-    // public function catego()
-    // {
-    //     return $this->hasMany(Category::class);
-    // }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    public function reviews()
+    {
+        return $this->morphMany(Review::class, 'reviewable');
+    }
+
 }

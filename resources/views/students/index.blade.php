@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -11,6 +11,7 @@
                             <th>Nama</th>
                             <th>Email</th>
                             <th>No HP</th>
+                            <th>Buku</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -21,6 +22,10 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->Student->phone }}</td>
+                                @foreach ($item->books as $book)
+                                    <td><a href="{{ route('book.user', $book->id) }}">{{ $book->name }}</a>
+                                    </td>
+                                @endforeach
                             </tr>
                         @endforeach
                     </tbody>

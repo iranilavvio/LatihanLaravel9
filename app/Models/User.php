@@ -47,11 +47,12 @@ class User extends Authenticatable
         return $this->hasOne(Student::class);
     }
 
-    // public function book() {
-    //     return $this->hasMany(Book::class);
-    // }
-
     public function scopeisUser($query) {
         return $query->whereRole('user');
+    }
+
+    public function books()
+    {
+        return $this->belongsToMany(Book::class); //user punya banyak buku
     }
 }
