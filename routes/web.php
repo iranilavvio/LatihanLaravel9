@@ -27,4 +27,12 @@ Route::controller(BookController::class)->group(function(){
 
 Route::get('/category', [CategoryController::class, 'index'])->name('category');
 Route::get('/category/{id}', [CategoryController::class, 'detail'])->name('category.detail');
-Route::get('/students', [StudentController::class,'index'])->name('students');
+
+
+Route::get('/students', [StudentController::class,'index'])->name('students.index');
+Route::get('/students-detail/{id}', [StudentController::class, 'detail'])->name('students.detail');
+Route::get('/students/create', [StudentController::class,'create'])->name('students.create');
+Route::post('/students/store', [StudentController::class,'store'])->name('students.store');
+Route::delete('/students/delete/{user}', [StudentController::class, 'delete'])->name('students.delete');
+Route::get('/students/edit/{student}', [StudentController::class, 'edit'])->name('students.edit');
+Route::put('/students/update/{student}', [StudentController::class, 'update'])->name('students.update');

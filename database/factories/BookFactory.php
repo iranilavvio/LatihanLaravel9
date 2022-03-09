@@ -22,7 +22,7 @@ class BookFactory extends Factory
         // $user = User::isUser()->inRandomOrder()->first();
         return [
             'slug' => $this->faker->slug,
-            'name' => $this->faker->name,
+            'name' => $this->faker->sentence,
             'qty' => $this->faker->randomDigit,
             'image' => $this->faker->imageUrl,
             'category_id' => Category::all()->random()->id,

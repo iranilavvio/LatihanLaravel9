@@ -10,14 +10,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $active = 'category';
-        $categories = Category::all();
+        $categories = Category::withCount('books')->with('books')->get();
         
-        return view('categories.index', compact('active', 'categories'));
+        return view('categories.index', compact('categories'));
     }
 
     public function detail($id){
-        $category = Category::findOrFail($id);
+        $category = Category::whereId($id)->with(['books' => function ($query) {
+            $query->with('category');
+        }])->firstOrFail();
         return view('categories.detail', compact('category'));
     }
 }

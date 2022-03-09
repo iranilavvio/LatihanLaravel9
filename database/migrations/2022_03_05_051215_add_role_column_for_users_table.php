@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //schema
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role', 10)->default('user')->after('remember_token');
+            $table->string('role', 10)->default('student')->after('remember_token');
         });
     }
 

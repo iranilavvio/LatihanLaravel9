@@ -8,10 +8,10 @@
     @include('includes.styles')
     @stack('after-styles')
 
-    <title>Latihan 1</title>
+    <title>{{ env('APP_NAME') }}</title>
 </head>
 
-<body class="bg-light">
+<body>
     @include('includes.navbar')
 
     <div class="container py-4">

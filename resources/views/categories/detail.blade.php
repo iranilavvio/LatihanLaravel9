@@ -4,18 +4,18 @@
 
     <p>Daftar Buku: </p>
 
-    @if ($category->book->count() > 0)
+    @if ($category->books->count() > 0)
         <div class="row">
-            @foreach ($category->book as $book)
+            @foreach ($category->books as $book)
                 <div class="col-md-3">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <img src="{{ $book->image }}" class="img-fluid rounded mb-2" alt="">
-                            <h6 class="mt-1">
-                                <p class="text-dark text-decoration-none">{{ $book->name }}</p>
-                            </h6>
-                            <p class="text-muted">{{ str()->limit($book->slug, 20) }}</p>
-                            <p class="text-muted">Kategori : <b>{{ $book->category->name }}</b> </p>
+                            <img src="{{ $book->image }}" class="card-img-top" alt="...">
+                            <a href="{{ route('book.detail', $book->slug) }}"
+                                class="card-title text-primary">{{ $book->name }}</a>
+                            <p class="card-text">Total : {{ $book->qty }}</p>
+                            <a href="{{ route('category.detail', $book->category->id) }}"
+                                class="card-text btn btn-primary btn-sm rounded-pill">{{ $book->category->name }}</a>
                         </div>
                     </div>
                 </div>

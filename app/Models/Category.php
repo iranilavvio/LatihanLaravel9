@@ -12,7 +12,7 @@ class Category extends Model
     protected $table = "categories";
     // protected $with = ['book'];
 
-    public function book()
+    public function books()
     {
         return $this->hasMany(Book::class);
     }

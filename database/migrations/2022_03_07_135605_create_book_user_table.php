@@ -19,7 +19,7 @@ return new class extends Migration
 
              // relation
              $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
-             $table->foreign('user_id')->references('id')->on('users');
+             $table->foreign('user_id')->references('id')->on('users');//on delete harus ditambahkan dan aku relasikan manual di phpmyadmin
         });
     }
 
